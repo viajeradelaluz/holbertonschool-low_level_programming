@@ -6,11 +6,12 @@
 
 int main(void)
 {
-	char apb;
+	char apb = 'a';
 
-	for (apb = 'a'; apb <= 'z' && != 'e' 'q'; apb++)
+	while ((apb <= 'z') && (apb != 'e''q'))
 	{
 		putchar(apb);
+		apb++;
 	}
 	putchar('\n');
 	return (0);
