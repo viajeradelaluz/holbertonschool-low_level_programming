@@ -11,6 +11,7 @@ int main(void)
 	for (apb = 'a'; apb <= 'z'; apb++)
 	{
 		putchar(apb);
+		putchat(\n);
 	}
 	return (0);
 }
