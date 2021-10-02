@@ -8,10 +8,17 @@ int main(void)
 {
 	char apb = 'a';
 
-	while ((apb != 'e') && (apb != 'q') && (apb <= 'z'))
+	while (apb <= 'z')
 	{
-		putchar(apb);
-		apb++;
+		if ((apb != 'e') && (apb != 'q'))
+		{
+			putchar(apb);
+			apb++;
+		}
+		else
+		{
+			apb++;
+		}
 	}
 	putchar('\n');
 	return (0);
