@@ -1,4 +1,4 @@
-#include <stdio>
+#include <stdio.h>
 /**
  * main - Print _putchar followed by a new line
  * Return: Always 0
@@ -6,9 +6,6 @@
 
 int main(void)
 {
-	char p = '_putchar';
-
-	putchar(p);
-	putchar('\n');
+	printf("_putchar\n")
 	return(0);
 }
