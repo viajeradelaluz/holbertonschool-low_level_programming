@@ -1,12 +1,14 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * cap_string - Capitalize words of a string.
  * @s: String to capitalize.
  * Return: String capitalized.
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
+	char *str = s; /* Pointer to string in main */
 	char ar[] = " \t\n,;.!?\"(){}"; /* Array of special characters */
 	char *par = &ar[0]; /* Pointer to the array */
 
@@ -28,5 +30,5 @@ char *cap_string(char *str)
 		}
 		str++;
 	}
-	return (str);
+	return (s);
 }
