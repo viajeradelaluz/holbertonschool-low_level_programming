@@ -7,26 +7,26 @@
  */
 char *cap_string(char *s)
 {
-	char *str = s; /* Pointer to string in main */
-	char ar[] = {" \t\n,;.!?\"(){}"}; /* Array of special characters */
-	char *par = ar; /* Pointer to the array */
+	char ar[] = {" \t\n,;.!?\"(){}"};
+	int c = 0;
+	int par = 0;
 
-	if (*str > 96 && *str < 123)
-		*str -= 32;
-	
-	while (*str != '\0')
+	for (; s[c] != '\0'; c++)
 	{
-		for (par = &ar[0]; *par != '\0'; par++)
+		for (par = 0; ar[par]; par++)
 		{
-			if (*str == *par)
+			if (s[c] >= 97 && s[c] <= 122)
 			{
-				str++, par++;
-				if (*str > 96 && *str < 123)
-					*str -= 32;
-				break;
+				if (s[c - 1] == ar[par])
+				{
+					s[c] = s[c] - 32;
+				}
+				else if (c == 0)
+				{
+					s[c] = s[c] - 32;
+				}
 			}
 		}
-		str++;
 	}
 	return (s);
 }
