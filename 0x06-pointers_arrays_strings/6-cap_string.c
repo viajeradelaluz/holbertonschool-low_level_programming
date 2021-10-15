@@ -22,10 +22,7 @@ char *cap_string(char *s)
 			{
 				str++;
 				if (*str > 96 && *str < 123)
-				{
 					*str -= 32;
-					break;
-				}
 				else
 					par = &ar[0];
 			}
