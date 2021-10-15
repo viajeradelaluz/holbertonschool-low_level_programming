@@ -11,6 +11,9 @@ char *cap_string(char *s)
 	char ar[] = {" \t\n,;.!?\"(){}"}; /* Array of special characters */
 	char *par = ar; /* Pointer to the array */
 
+	if (*str > 96 && *str < 123)
+		*str -= 32;
+	
 	while (*str != '\0')
 	{
 		for (par = &ar[0]; *par != '\0'; par++)
