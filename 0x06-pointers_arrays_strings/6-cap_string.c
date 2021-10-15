@@ -2,31 +2,35 @@
 
 /**
  * cap_string - Capitalize words of a string.
- * @s: String to fix.
+ * @s: String to capitalize.
  * Return: String capitalized.
  */
 char *cap_string(char *s)
 {
-	char ar[] = {" \t\n,;.!?\"(){}"};
-	int c = 0;
-	int par = 0;
+	char *str = s; /* Pointer to string in main */
+	char ar[] = {" \t\n,;.!?\"(){}"}; /* Array of special characters */
+	char *par = ar;	/* Pointer to the array */
 
-	for (; s[c] != '\0'; c++)
+	if (*str > 96 && *str < 123)
+		*str -= 32;
+
+	while (*str != '\0')
 	{
-		for (par = 0; ar[par]; par++)
+		for (par = &ar[0]; *par != '\0'; par++)
 		{
-			if (s[c] >= 97 && s[c] <= 122)
+			if (*str == *par)
 			{
-				if (s[c - 1] == ar[par])
+				str++;
+				if (*str > 96 && *str < 123)
 				{
-					s[c] = s[c] - 32;
+					*str -= 32;
+					break;
 				}
-				else if (c == 0)
-				{
-					s[c] = s[c] - 32;
-				}
+				else
+					par = &ar[0];
 			}
 		}
+		str++;
 	}
 	return (s);
 }
