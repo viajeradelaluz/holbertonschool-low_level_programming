@@ -5,9 +5,8 @@
  * @s: String to capitalize.
  * Return: String capitalized.
  */
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	char *str = s; /* Pointer to string in main */
 	char ar[] = " \t\n,;.!?\"(){}"; /* Array of special characters */
 	char *par = &ar[0]; /* Pointer to the array */
 
@@ -29,5 +28,5 @@ char *cap_string(char *s)
 		}
 		str++;
 	}
-	return (s);
+	return (str);
 }
