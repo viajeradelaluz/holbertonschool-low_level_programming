@@ -8,7 +8,7 @@
 char *cap_string(char *s)
 {
 	char *str = s; /* Pointer to string in main */
-	char ar[] = {" \t\n,;.!?\"(){}"}; /* Array of special characters */
+	char ar[] = " \t\n,;.!?\"(){}"; /* Array of special characters */
 	char *par = &ar[0]; /* Pointer to the array */
 
 	if (*str > 96 && *str < 123)
