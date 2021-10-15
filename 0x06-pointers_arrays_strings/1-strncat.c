@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _strcat - Append two strings.
+ * _strncat - Append strings with not more than n bytes.
  * @dest: String destination.
  * @src: String input.
+ * @n: Rectrcit of bytes.
  * Return: Destination.
  */
 char *_strncat(char *dest, char *src, int n)
