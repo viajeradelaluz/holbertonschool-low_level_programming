@@ -19,8 +19,5 @@ char *_strpbrk(char *s, char *accept)
 		s++;
 	}
 
-	if (*s == '\0' && *accept == '\0')
-		return (NULL);
-
-	return (s);
+	return (NULL);
 }
