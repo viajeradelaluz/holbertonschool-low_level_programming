@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int c, add = 0;
+	int c, s, add = 0;
 
 	if (argc > 1)
 	{
@@ -28,5 +28,3 @@ int main(int argc, char *argv[])
 		printf("%d\n", 0);
 	return (0);
 }
-
-/* if (atoi(argv[c]) < 0) */
