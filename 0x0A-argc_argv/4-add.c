@@ -14,14 +14,13 @@ int main(int argc, char *argv[])
 	{
 		for (c = 1; c < argc; c++)
 		{
-			if (atoi(argv[c]) < 0)
-				continue;
+			if (atoi(argv[c]))
+				add += atoi(argv[c]);
 			else if (!isdigit(*argv[c]))
 			{
 				printf("Error\n");
 				return (1);
 			}
-			add += atoi(argv[c]);
 		}
 		printf("%d\n", add);
 	}
@@ -29,3 +28,5 @@ int main(int argc, char *argv[])
 		printf("%d\n", 0);
 	return (0);
 }
+
+/* if (atoi(argv[c]) < 0) */
