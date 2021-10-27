@@ -8,11 +8,13 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int counter1, counter2;
+	unsigned int counter1 = 0, counter2 = 0;
 	char *concat, *copy_s;
 
-	if (s1 == NULL || s2 == NULL)
-		/* return (NULL); */
+	if (s1 == NULL)
+		s1 = "";
+	else if (s2 == NULL)
+		s2 = "";
 
 	while (s1[counter1] && s2[counter2])
 		counter1++, counter2++;
