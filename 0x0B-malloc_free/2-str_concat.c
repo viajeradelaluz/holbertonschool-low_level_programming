@@ -13,7 +13,7 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL)
 		s1 = "";
-	else if (s2 == NULL)
+	if (s2 == NULL)
 		s2 = "";
 
 	while (s1[counter1] && s2[counter2])
@@ -22,18 +22,15 @@ char *str_concat(char *s1, char *s2)
 	counter1 += counter2;
 	concat = malloc(sizeof(char) * counter1 + 1);
 
-	copy_s = concat;
-	while (*s1)
-	{
-		*copy_s = *s1;
-		copy_s++, *s1++;
-	}
-	while (*s2)
-	{
-		*copy_s = *s2;
-		copy_s++, *s2++;
-	}
 	if (concat == NULL)
 		return (NULL);
+
+	copy_s = concat;
+	while (*s1)
+		*copy_s++ = *s1++;
+
+	while (*s2)
+		*copy_s++ = *s2++;
+
 	return (concat);
 }
