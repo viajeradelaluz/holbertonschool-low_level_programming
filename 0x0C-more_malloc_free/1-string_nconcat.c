@@ -16,8 +16,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	while (s1[count1] && s2[count2])
-		count1++, count2++;
+	while (s1[count1])
+		count1++;
+	while (s2[count2])
+		count2++;
 
 	if (n >= count2)
 		count1 += count2;
@@ -37,6 +39,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		*copy_s++ = *s2++;
 		n--;
 	}
-	*copy_s = '\0';
+/* 	*copy_s = '\0'; */
 	return (concat);
 }
