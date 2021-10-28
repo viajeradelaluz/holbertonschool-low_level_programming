@@ -32,10 +32,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (*s1)
 		*copy_s++ = *s1++;
 
-	while (n--)
+	while (n)
 	{
-		while (*s2)
-			*copy_s++ = *s2++;
+		*copy_s++ = *s2++;
+		n--;
 	}
 	return (concat);
 }
