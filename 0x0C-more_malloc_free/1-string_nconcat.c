@@ -26,15 +26,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 		count1 += n;
 
-	concat = malloc(sizeof(char) * (count1 + 1));
+	concat = malloc(sizeof(char) * (count1 + 2));
 	if (concat == NULL)
 		return (NULL);
 
 	copy_s = concat;
-	while (*s1 != '\0')
+	while (*s1)
 		*copy_s++ = *s1++;
 
-	while (n <= count1 && *s2 != '\0')
+	while (n <= count1)
 	{
 		*copy_s++ = *s2++;
 		n++;
