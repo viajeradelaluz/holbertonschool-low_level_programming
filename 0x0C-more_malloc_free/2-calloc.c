@@ -7,19 +7,20 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *palloc;
+	char *palloc;
+	unsigned int counter = 0;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	palloc = (void *)malloc(sizeof(size) * nmemb);
+	palloc = malloc(size * nmemb);
 	if (palloc == NULL)
 		return (NULL);
 
-	while (*palloc)
+	while (counter < (size * nmemb))
 	{
-		palloc[nmemb] = 0;
-		nmemb--;
+		palloc[counter] = 0;
+		counter++;
 	}
 	return (palloc);
 }
