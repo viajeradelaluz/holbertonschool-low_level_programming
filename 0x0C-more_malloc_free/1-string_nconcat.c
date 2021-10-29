@@ -26,7 +26,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 		count1 += n;
 
-	concat = malloc(sizeof(char) * count1 + 1);
+	concat = malloc(sizeof(char) * count1 + 2);
 	if (concat == NULL)
 		return (NULL);
 
@@ -34,10 +34,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (*s1)
 		*copy_s++ = *s1++;
 
-	while (n)
+	while (n <= count1)
 	{
 		*copy_s++ = *s2++;
-		n--;
+		n++;
 	}
 	*copy_s = '\0';
 	return (concat);
