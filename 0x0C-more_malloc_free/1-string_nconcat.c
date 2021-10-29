@@ -2,7 +2,7 @@
 /**
  * string_nconcat - Concatenate two strings.
  * @s1: string one.
- * @s2:string two.
+ * @s2: string two.
  * @n: first bytes of string two.
  * Return: *concat on success, NULL on failure.
  */
@@ -26,7 +26,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 		count1 += n;
 
-	concat = malloc(sizeof(char) * count1 + 2);
+	concat = malloc(sizeof(char) * count1 + 1);
 	if (concat == NULL)
 		return (NULL);
 
