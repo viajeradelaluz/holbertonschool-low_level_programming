@@ -34,7 +34,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (*s1 != '\0')
 		*copy_s++ = *s1++;
 
-	while (n <= count1 != '\0')
+	while (n <= count1 && *s2 != '\0')
 	{
 		*copy_s++ = *s2++;
 		n++;
