@@ -7,13 +7,13 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *palloc;
+	void *palloc;
 	unsigned int counter = 0;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	palloc = malloc(size * nmemb);
+	palloc = (void *)malloc(size * nmemb);
 	if (palloc == NULL)
 		return (NULL);
 
