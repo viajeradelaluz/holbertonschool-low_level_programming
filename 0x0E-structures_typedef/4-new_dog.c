@@ -25,43 +25,34 @@ int slen(char *s)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *input;
-	int cn, co;
-	char *i_name, *i_owner;
+	int namel, ownerl, counter;
 
 	input = malloc(sizeof(dog_t));
 	if (input == NULL)
 		return (NULL);
 
-	if (name != NULL)
+	namel = slen(name);
+	ownerl = slen(owner);
+
+	input->name = malloc(sizeof(input->name) * namel);
+	if (input->name == NULL)
 	{
-		i_name = malloc(slen(name) + 1);
-		if (i_name == NULL)
-		{
-			free(input);
-			return (NULL);
-		}
-		for (cn = 0; name[cn]; cn++)
-			i_name[cn] = name[cn];
-		input->name = i_name;
+		free(input);
+		return (NULL);
 	}
-	else
-		input->name = NULL;
+	for (counter = 0; counter <= namel; counter++)
+		input->name[counter] = name[counter];
 
 	input->age = age;
 
-	if (owner != NULL)
+	input->owner = malloc(sizeof(input->owner) * ownerl);
+	if (input->owner == NULL)
 	{
-		i_owner = malloc(slen(owner) + 1);
-		if (i_owner == NULL)
-		{
-			free(i_name), free(input);
-			return (NULL);
-		}
-		for (co = 0; owner[co]; co++)
-			i_owner[co] = owner[co];
-		input->owner = i_owner;
+		free(input->name), free(input);
+		return (NULL);
 	}
-	else
-		input->owner = NULL;
+	for (counter = 0; counter <= ownerl; counter++)
+		input->owner[counter] = owner[counter];
+	
 	return (input);
 }
