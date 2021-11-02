@@ -53,7 +53,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		i_owner = malloc(slen(owner) + 1);
 		if (i_owner == NULL)
 		{
-			free(i_name), free(input);
+			free(i_name);
+			free(input);
 			return (NULL);
 		}
 		for (co = 0; owner[co]; co++)
@@ -62,6 +63,5 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	else
 		input->owner = NULL;
-
 	return (input);
 }
