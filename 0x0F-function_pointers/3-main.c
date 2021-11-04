@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int a = atoi(argv[1]), b = atoi(argv[3]);
+	int a, b;
 	int (*f)(int, int);
 
 	if (argc != 4)
@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 	if (strlen(argv[2]) > 1)
 	{
 		printf("Error\n");
