@@ -24,6 +24,11 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	result = f(a, b);
+	if (result == -1)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 	printf("%d\n", result);
 	return (0);
 }
