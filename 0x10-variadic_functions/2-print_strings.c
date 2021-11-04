@@ -7,21 +7,22 @@
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	/* unsigned int counter = 0; */
-	const char *str = separator;
+	unsigned int counter = 0;
+	const char *str;
 	va_list args;
 
 	va_start(args, n);
 
-	while (*str)
+	while (counter < n)
 	{
-		if (str == NULL)
-			printf("(nil)");
-		else if (str[n] || separator == NULL)
-			printf("%s", va_arg(args, const char *));
+		str = va_arg(args, const char *);
+		if (str)
+			printf("%s", str);
 		else
-			printf("%s%s", va_arg(args, const char *), separator);
-		str++;
+			printf("nil");
+		if (counter < n - 1 && separator)
+			printf("%s", separator);
+		counter++;
 	}
 	printf("\n");
 	va_end(args);
