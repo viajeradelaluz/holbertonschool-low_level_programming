@@ -8,22 +8,24 @@ void print_all(const char *const format, ...)
 {
 	va_list args;
 	char *sval;
-	int counter = 0;
+	const char *data_type = format;
 
 	va_start(args, format);
-	while (format && format[counter])
+
+	while (*data_type)
 	{
-		switch (format[counter])
+		switch (*data_type++)
 		{
 		case 'c':
 			printf("%c", va_arg(args, int));
 			break;
-		case 'f':
-			printf("%f", va_arg(args, double));
-			break;
 		case 'i':
 			printf("%d", va_arg(args, int));
 			break;
+		case 'f':
+			printf("%f", va_arg(args, double));
+			break;
+
 		case 's':
 			sval = va_arg(args, char *);
 			if (!sval)
@@ -34,13 +36,11 @@ void print_all(const char *const format, ...)
 			printf("%s", sval);
 			break;
 		default:
-			counter++;
 			continue;
 		}
-		if (format[counter + 1] != '\0')
+		if (*(data_type))
 			printf(", ");
-		counter++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
 }
