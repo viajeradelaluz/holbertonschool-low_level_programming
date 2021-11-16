@@ -8,6 +8,9 @@ void free_listint2(listint_t **head)
 {
 	listint_t *tmp_pointer = NULL;
 
+	if (head == NULL)
+		return;
+
 	while (*head)
 	{
 		tmp_pointer = (*head)->next;
