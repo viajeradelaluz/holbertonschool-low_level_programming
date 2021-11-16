@@ -10,8 +10,8 @@ void free_listint2(listint_t **head)
 
 	while (*head)
 	{
-		tmp_pointer = *head;
-		*head = (*head)->next;
-		free(tmp_pointer);
+		tmp_pointer = (*head)->next;
+		free(*head);
+		*head = tmp_pointer;
 	}
 }
