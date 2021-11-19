@@ -8,8 +8,10 @@ void print_binary(unsigned long int n)
 {
 	if (n >> 0)
 	{
+		/* Right Shift ">>" divides "n" by 2 and moves bit value 1 position */
 		if (n >> 1)
 			print_binary(n >> 1);
+		/* Print using recursion */
 		_putchar((n & 1) + '0');
 	}
 	else
