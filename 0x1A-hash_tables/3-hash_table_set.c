@@ -9,25 +9,34 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	char *key_copy = NULL;
-	char *value_copy = NULL;
 	unsigned long int index = 0;
 	hash_node_t *node_at_index = NULL;
 
-	if (!ht || !key)
+	if (!ht || !key || !value || *key == '\0')
 		return (0);
 
+	index = key_index((unsigned char *)key, ht->size);
+	node_at_index = ht->array[index];
+
+	/* Check if the key is at index to replace the value */
+	while (node_at_index)
+	{
+		if (strcmp(key, node_at_index->key) == 0)
+		{
+			free(node_at_index->value);
+			node_at_index->value = strdup(value);
+			return (1);
+		}
+		node_at_index = node_at_index->next;
+	}
+
+	/* Add the key if it's not at index as node at the beginning */
 	node_at_index = malloc(sizeof(hash_node_t));
 	if (!node_at_index)
 		return (0);
 
-	key_copy = strdup(key);
-	value_copy = strdup(value);
-	index = key_index((unsigned char *)key, ht->size);
-
-	node_at_index->key = key_copy;
-	node_at_index->value = value_copy;
-	node_at_index->next = NULL;
+	node_at_index->key = strdup(key);
+	node_at_index->value = strdup(value);
 
 	if (ht->array[index] != NULL)
 		node_at_index->next = ht->array[index];
