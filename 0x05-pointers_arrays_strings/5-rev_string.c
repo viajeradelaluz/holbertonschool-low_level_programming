@@ -14,7 +14,7 @@ void rev_string(char *s)
 	for (; *(s); s++)
 	{
 	}
-	s--;
+	s--; /*no null*/
 
 	/*Loop to change the letters*/
 	for (; s >= begin; s--)
