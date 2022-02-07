@@ -22,11 +22,9 @@ size_t print_listint_safe(const listint_t *head)
 			printf("-> [%p] %d\n", (void *)new_head, new_head->n);
 			break;
 		}
-		if (tail == tail->next)
-		{
-			printf("-> [%p] %d\n", (void *)new_head, new_head->n);
-			break;
-		}
 	}
+	if (tail == tail->next)
+		printf("-> [%p] %d\n", (void *)new_head, new_head->n);
+
 	return (num_nodes);
 }
