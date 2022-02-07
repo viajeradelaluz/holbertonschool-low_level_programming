@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_diagsums - Print the sum of the two diagonals.
  * @a: Pointer to the array.
@@ -7,18 +8,17 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int f = 0, sum_d1 = 0, sum_d2 = 0;
+	int i, j, sum1 = 0, sum2 = 0;
 
-	while (f < size)
+	j = (size * size) - size;
+
+	for (i = 0; i < (size * size);)
 	{
-		sum_d1 += a[(f * size) + f];
-		f++;
+		sum1 += a[i];
+		sum2 += a[j];
+		j -= size - 1;
+		i += size + 1;
 	}
-	f = 1;
-	while (f <= size)
-	{
-		sum_d2 += a[(f * size) - f];
-		f++;
-	}
-	printf("%d, %d\n", sum_d1, sum_d2);
+
+	printf("%d, %d\n", sum1, sum2);
 }
