@@ -2,7 +2,7 @@
 /**
  * sum_them_all - Sum all the parameters.
  * @n: variable arguments to sum.
- * Return: 0 on failure, something else otherwise.
+ * Return: sum on success.
  */
 int sum_them_all(const unsigned int n, ...)
 {
@@ -18,5 +18,6 @@ int sum_them_all(const unsigned int n, ...)
 		counter++;
 	}
 	va_end(args);
+
 	return (sum);
 }
