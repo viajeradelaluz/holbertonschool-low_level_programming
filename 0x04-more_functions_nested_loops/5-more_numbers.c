@@ -2,22 +2,21 @@
 #include <stdio.h>
 
 /**
- * more_numbers - Print numbers from 0 to 14.
- * Return: No return.
+ * more_numbers - Print numbers from 0 to 14, 10 times.
+ * Return: nothing.
  */
 void more_numbers(void)
 {
-	int c, l;
+	int times, numbers;
 
-	for (c = 1; c <= 10; c++)
+	for (times = 0; times < 10; times++)
 	{
-		for (l = 0; l <= 14; l++)
+		for (numbers = 0; numbers <= 14; numbers++)
 		{
-			if (l >= 10)
-			{
-				putchar((l / 10) + '0');
-			}
-			putchar((l % 10) + '0');
+			if (numbers >= 10)
+				putchar((numbers / 10) + '0');
+
+			putchar((numbers % 10) + '0');
 		}
 		putchar('\n');
 	}
