@@ -30,10 +30,10 @@ def island_perimeter(grid):
                 if c == 0 or grid[r][c - 1] == 0:
                     perimeter += 1
                 """ Right """
-                if r == rows or grid[r + 1][c] == 0:
+                if r == (rows - 1) or grid[r + 1][c] == 0:
                     perimeter += 1
                 """ Bottom """
-                if c == columns or grid[r][c + 1] == 0:
+                if c == (columns - 1) or grid[r][c + 1] == 0:
                     perimeter += 1
                 """ Left """
                 if r == 0 or grid[r - 1][c] == 0:
