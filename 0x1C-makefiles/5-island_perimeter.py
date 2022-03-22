@@ -16,24 +16,26 @@
 def island_perimeter(grid):
     """ Returns the perimeter of grid.
         """
-    perimeter = 0
+    if grid is None or not isinstance(grid, list):
+        return
 
+    perimeter = 0
     rows = len(grid)
     columns = len(grid[0])
-    
+
     for r in range(rows):
         for c in range(columns):
             if grid[r][c] == 1:
-                # Top
-                if grid[r][c - 1] == 0:
+                """ Top """
+                if c == 0 or grid[r][c - 1] == 0:
                     perimeter += 1
-                # Right
-                if grid[r + 1][c] == 0:
+                """ Right """
+                if r == rows or grid[r + 1][c] == 0:
                     perimeter += 1
-                # Bottom
-                if grid[r][c + 1] == 0:
+                """ Bottom """
+                if c == columns or grid[r][c + 1] == 0:
                     perimeter += 1
-                # Left
-                if grid[r - 1][c] == 0:
+                """ Left """
+                if r == 0 or grid[r - 1][c] == 0:
                     perimeter += 1
     return perimeter
